@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Senin İçin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Dancing Script', cursive;
+      background-color: #5c0a28;
+      color: #000;
+      padding: 50px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    .content {
+      max-width: 800px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    .sparkle {
+      animation: sparkle 3s infinite;
+    }
+    p {
+      font-size: 20px;
+    }
+    .poem {
+      font-style: italic;
+      margin: 20px auto;
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      display: none;
+    }
+    .poem.show {
+      opacity: 1;
+    }
+    .poem-links {
+      margin-top: 30px;
+    }
+    .poem-links button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #a479d7;
+      color: black;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(164, 121, 215, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .poem-links button:hover {
+      background-color: #8c5cc3;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(140, 92, 195, 0.8);
+    }
+    @keyframes sparkle {
+      0%, 100% {
+        text-shadow: 0 0 5px #a479d7, 0 0 10px #8c5cc3;
+      }
+      50% {
+        text-shadow: 0 0 20px #d19aff, 0 0 30px #b182cc;
+      }
+    }
+    /* Gül animasyonu */
+    .floating-rose {
+      position: fixed;
+      top: -150px;
+      left: calc(100% * var(--pos));
+      width: 100px;
+      opacity: 0.1;
+      animation: floatDown 20s linear infinite;
+      pointer-events: none;
+      user-select: none;
+      background-image: url('https://i.ibb.co/Y0WwX7D/red-rose.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    @keyframes floatDown {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(110vh) scale(1);
+        opacity: 0;
+      }
+    }
+    /* Kalp animasyonu */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: float 4s ease-in infinite;
+      opacity: 0.7;
+      z-index: 9999;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1 class="sparkle">Aşk Çiçeğim 💜</h1>
+    <p class="sparkle">Çok güzel, karıcığım. Bu site, hatıralarımızın zaman kapsülü ve aşkımın portresinin karşılığı.</p>
+    <div class="poem-links">
+      <h2 class="sparkle">Sevgi Çiçekleri</h2>
+
+      <button onclick="togglePoem('poem-27012024')">🌹 27.01.2024</button>
+      <button onclick="togglePoem('poem-04112024')">🕊️ 04.11.2024</button>
+      <button onclick="togglePoem('poem-07112024')">💌 07.11.2024</button>
+      <button onclick="togglePoem('poem-18122024')">🌸 18.12.2024</button>
+      <button onclick="togglePoem('poem-26032025')">🍃 26.03.2025</button>
+      <button onclick="togglePoem('poem-26032025-b')">🍂 26.3.2025</button>
+      <button onclick="togglePoem('poem-17042025')">🌷 17.04.2025</button>
+      <button onclick="togglePoem('poem-19042025')">🌼 19.04.2025</button>
+      <button onclick="togglePoem('poem-02052025')">💖 02.05.2025</button>
+    </div>
+  </div>
+  <div id="poem-27012024" class="poem sparkle">
+    🌹 Mor Gül🌹<br><br>
+    Gökten inen bir sanat eseri<br>
+    Güzelliği kaybettiriyor insana kendini<br><br>
+    Lakin nazlı sanatçının bu eseri<br>
+    Göstermiyor ki hiç kendini<br><br>
+    Yok ama, bu gülün hiç dikeni<br>
+    Bıçağı var et dikkatini<br><br>
+    Kazanınca ama güvenini<br>
+    Yakıyor gezdiği gönülleri<br>
+    Eritti saf ahmağın tekini<br>
+    Tatlı elmacık kemikleri<br><br>
+    Vazgeçilmezim diyen<br>
+    Haklıymış diyor aşka düşen<br>
+    Yokmuş güya kibiri<br>
+    İnan kırma o güzeli<br><br>
+    7 tane kedileri<br>
+    Çok sevimli patileri<br>
+    Bilmiyor ama kendileri<br>
+    Sahipleri en şirinleri<br><br>
+    Bitmiyor Kore dizileri<br>
+    Kıskanıyor birileri<br>
+    Al da hadi şu vizeni<br>
+    Çık gel üzme bu bekleyeni
+  </div>
+  <div id="poem-04112024" class="poem sparkle">
+    Sen beni başka bir ben yaptın. Benim bile bu zamana kadar farkında olmadığım bir bene dönüştüm. Çevremdeki insanlar bile bu ilişkinin dönüştürdüğü benin farkındalar. Bu ben nasıl bir ben? Bu ben zayıf ve duygusal mı? Hep böyle miydi yoksa sen ben mi oldun? Üzüldüğümde kendime ağlardım. Şimdi sana ağlıyorum. Kendimi kötü hissettiğimde kendimle kalırdım, şimdi sana sığınıyorum. Sen kimsenin görmediği bir beni görüyorsun. Ve sen o beni de seviyor musun? Senden ilgi görmediğinde çocuk gibi ağlayan ve yine senden sevgi gördüğünde çocuk gibi sevinen.. Sen beni farklı bir şeye dönüştürdün. İyi mi kötü mü bilmesem de olması gerekene döndüm. Ve sen beni dönüştürmeye devam ediyorsun.<br><br>
+    Belki beni korkutan şey değişimdir. Hep seninle en aşk dolu şu anda kalmak istiyorum. Dudaklarında ve o gözlerindeki tutkuyu hiç kaybetmek istemiyorum.<br><br>
+    4/5 Kasım 2024<br><br>
+    1. yılımız kutlu olsun 🌹<br>
+    Seni çokça seven karın<br>
+    Gül
+  </div>
+  <div id="poem-07112024" class="poem sparkle">
+    Hani sana insanlara güvenmekte zorlandığımı söylemiştim. Peki ama sana güvenmeyi neden seçtiğimi merak ediyor musun? Evet davranışların bana o hissi verdi ama senin davranışlarının altında yatan şeyi sevdim ben. İnsanların maskeyle gezdiği şu ahir zamanda birine güvenmek kolay değil. Öyle ki insan kendinden bile şüphe eder bazen. Dünya günah havuzu olmuşken ıslanmamak mümkün müdür? İşte bu yüzden küçük bir dünyada yaşamayı severim. Sende en büyük güvencem inancının olması. Davranışlarının altında yatan şey bu. Yoksa birine bu kadar kısa sürede güvenmeyi seçmek kolay mı? İslam insanı güzelleştiren en güzel şey. Benim sana güvenmemi ve sana bağlanmamın kaynağıdır. İnancın ne kadar güçlü olursa benim sana bağlılığım o kadar güçlü olacaktır. Çünkü imanın beni de besleyip güzelleştirecek İnşallah.<br><br>
+    7 Kasım 2024
+  </div>
+  <div id="poem-18122024" class="poem sparkle">
+    Seni yersem görürsün<br>
+    18 Aralık 2024<br>
+    Sana eriyen biten, aşkından ağlayabilecek olan, seni özleyen ve her anını senle yaşamak isteyen, seni tanımaya doyamayan<br><br>
+    Yakışıklı kocan<br>
+    Alper<br><br>
+    1. Yılımız kutlu olsun, seninle tanıştığım güne şükürler olsun
+  </div>
+  <div id="poem-26032025" class="poem sparkle">
+    Kış gelince o renkli kokulu yapraklar döküldü ve geriye dikenler kaldı. Aşkın büyülü pembe dumanı dağıldı ve yanılsama berraklaşmaya başladı. Gerçek aşk denilen şey bundan sonra kazanılan aşk diye düşündüm üşürken. Karşılıklı kusurlarla sevebilmek ve kabul etmek asıl zor ve değerli olan. Hayal kırıklıkları ise cam gibi batıyormuş meğer insana..<br><br>
+    26 Mart 2025
+  </div>
+  <div id="poem-26032025-b" class="poem sparkle">
+    Güneşi görünce açılan yapraklarımın rengi ve parlaklığı ortaya çıkar.<br>
+    Yalnız kaldığım takdirde karanlık döküntülerimi siyaha boyar.<br>
+    O geceler güneşi bekler yüreğim, kan ağlar<br>
+    Güneşle birlikte batıp güneşle birlikte doğmakmış aşk 🥀<br><br>
+    26 Mart 2025
+  </div>
+  <div id="poem-17042025" class="poem sparkle">
+    Sevgili Aşk Çiçeğim,<br><br>
+    Size mail yoluyla ulaşmamın sebebi: birincisi size olan sevgimi belirtmek, ikincisi size olan minnettarlığımı belirtmek ve son olarak da bu yağmurlu günlerinizde size olan desteğimi ve bağlılığımı belirtip, içinize huzur getirmektir.<br><br>
+    Öncelikle sizi ne kadar sevdiğimden başlayacak olursak , aslında bunu yeterli bi şekilde anlatmak mümkün olmayacaktır ama gene de burda küçük örnekler vereceğim, sizi o kadar çok seviyorum ki sizsiz bir ebediyet düşünmeye tahammülüm yok. Sizi o kadar çok seviyorum ki her zaman her yerde ya sizi düşünüyorum ya da sizinle olsaydım neler yapardık diye düşünerek huzur buluyorum.<br><br>
+    Teşekkür kısmına gelirsek , tabii ki bu kısım da önceki gibi yaz yaz bitmeyecek türden ama gene bir iki örnekle yazının niyetine dair bir şeylere değineceğiz. Birincisi bulunmaz sandığım, dünyada olabileceğini düşündüğüm gibi olabileceği aklıma bile gelmeyecek özellikleriyle kişiliğinizin var olması tabii ki aslen Allah ‘ a ama ayrıca bu kişi olmayı tercih ettiğiniz için de , sizlere çok teşekkür ederim. Tabii ki de say say bitmeyecek özelliklerinizin başlıcaları arasında: kalbinizin temizliği, zeki ve yaratıcı kişiliğiniz , egosuz oluşunuz, dünyadan güzel şeyler bekleyip dünyaya güzel şeyler vermek isteyen bencilliğe karşı tavrınız ve tabiiki de olmazsa olmaz eşsiz güzelliğiniz( detayları WhatsApp'ta belirtilecektir, bu mail içerisine yazılması uygun görülmemiştir).<br><br>
+    Umuyorum bu mesaj sizin güzel bir anınızı süsler veya kötü bir anınızı tam tersine çevirir. Sizlere çok âşık olduğumu da son olarak belirtmek isterim.<br><br>
+    Romantik Haydut 💜<br>
+    17.04.2025
+  </div>
+  <div id="poem-19042025" class="poem sparkle">
+    Benim güçlü prensesim<br>
+    O yumuşak kalbiyle<br>
+    Hayatın zorbalığında<br>
+    Olgunluğundan ödün vermeyen<br><br>
+    Artık şımarma zamanın<br>
+    Çocuklaşma zamanın<br>
+    İstediğin kadar ağlama zamanın<br><br>
+    O yüzden ağla artık<br>
+    Tutma kendini<br>
+    İstediğin kadar ağla da <br>
+    Sarılıp dinleyeyim seni<br><br>
+    İstediğin kadar şımar da<br>
+    Elinden tutup gezdireyim seni<br><br>
+    Bu bir şiir değil<br>
+    Sana bir hatırlatma<br><br>
+    Artık benimlesin<br>
+    O yüzden ağla artık<br>
+    Tutma göz yaşlarını ki<br>
+    Ellerimle sileyim
+  </div>
+  <div id="poem-02052025" class="poem sparkle">
+    Biricik aşkım, aşkı yaşatan adam;<br><br>
+    Sen arkamı yaslayıp gözümü kapatarak kendimi kollarına teslim edebileceğim yoldaş,<br>
+    vaktimi keyiflendirip zenginleştiren huzurlu arkadaş,<br>
+    çapkın ve komik sevgili,<br>
+    parlak gözlerinde kendimi bulacağım ayna,<br>
+    şımartan ve ruhumdaki çocuğu çağıran o çocuk,<br>
+    dini ve felsefi konularda tartışacağım mentor,<br>
+    benim iyiliğimi benden çok düşünen merhamet,<br>
+    sanatımı sergileyeceğim hayran,<br>
+    geleceğimi emanet edebileceğim çok iyi bir eşsin, eşsizsin.<br><br>
+    Ve her şeyden öte kendimi bulma yolculuğumda buna en yakından tanıklık edecek ve beni destekleyen en değerlimsin.<br>
+    Ve biliyorum ki zamanı geldiğinde harika bir baba, olgun bir yetişkin, hâlâ bana aşık bir yaşlı ve tonton bir dede olacaksın.<br><br>
+    Seni çok seviyorum..
+  </div>
+<div style="margin-top: 40px; text-align: center;">
+  <button onclick="window.open('https://music.youtube.com/watch?v=53rCO8BsKwU&si=Hc1XsLMo8iKnai8o', '_blank')" 
+          style="font-family: 'Dancing Script', cursive;padding: 12px 20px; font-size: 18px; background-color: #a479d7; color: black; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 0 10px rgba(164,121,215,0.6); transition: background-color 0.3s ease;">
+    🎵 Aşkımız çok güzel
+  </button>
+</div>
+  <div  style="margin-top: 40px; text-align: center;">
+  <button onclick="window.open('https://music.youtube.com/watch?v=N9qAiSDM3r8&si=9IxH6h3iU_gPELJh', '_blank')" 
+          style="font-family: 'Dancing Script', cursive;padding: 12px 20px; font-size: 18px; background-color: #a479d7; color: black; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 0 10px rgba(164,121,215,0.6); transition: background-color 0.3s ease;">
+    🎵 İlk  Heyecan
+  </button>
+</div>
+<button class="sparkle" onclick="togglePoem('dreams')" style="font-family: 'Dancing Script', cursive;background-color: #a479d7; color: black; border: none; border-radius: 6px; padding: 10px 15px; margin: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 0 8px rgba(164, 121, 215, 0.6); transition: transform 0.2s ease, box-shadow 0.3s ease;">
+  🌟 Hayallerimiz
+</button>
+<div style="margin-top: 20px; font-size: 18px; font-weight: bold; padding: 12px 20px; border-radius: 10px; background: linear-gradient(135deg, #e5d4f3, #d8b9f2); box-shadow: 0 0 10px rgba(164, 121, 215, 0.5);">
+  4 Aralık 2024'ten beri geçen süre: <span id="sinceCounter"></span>
+</div>
+
+
+<div id="dreams" class="poem" style="font-family: 'Dancing Script', cursive;display:none; font-style: normal; text-align: left;">
+  <ul>
+    <li>Japonyaya Gezi</li>
+    <li>8 Çocuk</li>
+    <li>Gül’ün Oscar ödülü alıp bizi zengin etmesi</li>
+  </ul>
+</div>
+<button onclick="togglePoem('importantDates')" style="font-family: 'Dancing Script', cursive;background-color: #a479d7; color: black; border: none; border-radius: 6px; padding: 10px 15px; margin: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 0 8px rgba(164, 121, 215, 0.6); transition: transform 0.2s ease, box-shadow 0.3s ease;">
+  📅 Önemli Tarihler
+</button>
+
+<div id="importantDates" class="poem" style="display:none; font-style: normal; text-align: left;">
+  <ul>
+    <li>18 Aralık 2023 - Tanışma</li>
+    <li>4 Mayıs 2024 - İlk Buluşma</li>
+    <li>18 Mayıs 2024 - Nişan</li>
+    <li>2 Eylül 2024 - Düğün</li>
+    <li>4 Aralık 2024 - :)</li>
+  </ul>
+</div>
+
+  <script>
+    function togglePoem(id) {
+      document.querySelectorAll('.poem').forEach(p => {
+        if(p.id === id) {
+          if(p.classList.contains('show')) {
+            p.classList.remove('show');
+            setTimeout(() => p.style.display = 'none', 800);
+          } else {
+            p.style.display = 'block';
+            setTimeout(() => p.classList.add('show'), 10);
+          }
+        } else {
+          p.classList.remove('show');
+          p.style.display = 'none';
+        }
+      });
+    }
+
+    window.addEventListener('load', () => {
+      for(let i=0; i<6; i++) {
+        const rose = document.createElement('div');
+        rose.classList.add('floating-rose');
+        rose.style.setProperty('--pos', Math.random());
+        rose.style.animationDelay = (i * 3) + 's';
+        document.body.appendChild(rose);
+      }
+
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+      setInterval(createHeart, 300);
+    });
+    function updateCounter() {
+  const startDate = new Date("2024-12-04T00:00:00");
+  const now = new Date();
+  const diff = now - startDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  const counterText = `${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye geçti`;
+  document.getElementById("sinceCounter").textContent = counterText;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+  </script>
+</body>
+</html>
